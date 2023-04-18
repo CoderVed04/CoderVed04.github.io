@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Login/Register</title>
+	<link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+	<!-- container div -->
+	<div class="container">
+
+		<!-- upper button section to select
+			the login or signup form -->
+		<div class="slider"></div>
+		<div class="btn">
+			<button class="login">Login</button>
+			<button class="signup">Signup</button>
+		</div>
+	    <form name="myForm" onsubmit="return validateForm()" method="post" action="home.html" target="_blank">
+
+			<!-- Form section that contains the
+			login and the signup form -->
+		 	<div class="form-section">
+
+				<!-- login form -->
+				<div class="login-box">
+					<input type="email" class="email ele" placeholder="youremail@email.com" name="mail">
+					<input type="password" class="password ele" placeholder="password" name="pass">
+					<a href="home.html" target="_blank"><button class="clkbtn" type="submit">Login</button></a>
+				</div>
+
+				<!-- signup form -->
+				<div class="signup-box">
+					<input type="text" class="name ele" placeholder="Enter your name">
+					<input type="email" class="email ele" placeholder="youremail@email.com">
+					<input type="password" class="password ele" placeholder="password">
+					<input type="password" class="password ele" placeholder="Confirm password">
+					<a href="home.html" target="_blank"><button class="clkbtn" type="submit">Signup</button></a>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<script>
+    let signup = document.querySelector(".signup");
+    let login = document.querySelector(".login");
+    let slider = document.querySelector(".slider");
+    let formSection = document.querySelector(".form-section");
+    
+    signup.addEventListener("click", () => {
+      slider.classList.add("moveslider");
+      formSection.classList.add("form-section-move");
+    });
+    
+    login.addEventListener("click", () => {
+      slider.classList.remove("moveslider");
+      formSection.classList.remove("form-section-move");
+    });
+
+    function validateForm() {
+    var x = document.forms["myForm"]["mail"].value;
+    if (x == "") {
+    alert("E-mail is required");
+    return false;
+    }
+    var x = document.forms["myForm"]["pass"].value;
+    if (x == "") {
+    alert("Password is required");
+    return false;
+    }
+	}
+    </script>
+</body>
+
+</html>
